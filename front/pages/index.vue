@@ -41,4 +41,5 @@ const data = await useConsul(path)
   {{ data }}
   <br>
   <!-- {{ data }} -->
+  <button @click="navigateTo('/dashboard')">go to Dashboard</button>
 </template>
