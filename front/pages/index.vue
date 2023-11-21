@@ -1,7 +1,8 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: 'default'
-})
+  layout: 'default',
+  needAuth: true
+});
 
 console.log('useTemplateStore', useTemplateStore())
 console.log('ENV CONSUL_URL', import.meta.env.VITE_CONSUL_URL)
