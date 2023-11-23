@@ -1,6 +1,5 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: 'default',
   needAuth: true
 });
 
@@ -43,4 +42,6 @@ const data = await useConsul(path)
   <br>
   <!-- {{ data }} -->
   <button @click="navigateTo('/dashboard')">go to Dashboard</button>
+  <br>
+  <button @click="navigateTo('/services')">go to Services</button>
 </template>
