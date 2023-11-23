@@ -1,6 +1,20 @@
+<script setup lang="ts">
+  const logOut = () => {
+    localStorage.removeItem('token')
+    navigateTo('/login')
+  }
+
+
+</script>
+
 <template>
   <div class="flex">
-    <div class="basis-full h-14 bg-secondary"></div>
+    <div class="flex flex-row-reverse basis-full h-14 bg-secondary">
+      <button
+        class="bg-warning hover:opacity-70 text-error font-bold py-1 px-3 my-2 mx-4 rounded"
+        @click="logOut"
+      >log out</button>
+    </div>
   </div>
   <div class="flex h-screen">
     <!-- side bar -->
