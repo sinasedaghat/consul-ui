@@ -5,7 +5,7 @@ export default async function (path: Ref) {
     path.value,
     {
       transform: (response) => {
-        console.log('asaasssaas', response)
+        console.log('response from useConsul composable', response)
         return response[0].Name
       }
     }

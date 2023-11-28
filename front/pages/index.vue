@@ -3,8 +3,8 @@ definePageMeta({
   needAuth: true
 });
 
-console.log('useTemplateStore', useTemplateStore())
-console.log('ENV CONSUL_URL', import.meta.env.VITE_CONSUL_URL)
+// console.log('useTemplateStore', useTemplateStore())
+// console.log('ENV CONSUL_URL', import.meta.env.VITE_CONSUL_URL)
 
 const text_lower = ref('salam')
 const text_upper = ref('SALAM')
@@ -12,7 +12,7 @@ const text_upper = ref('SALAM')
 const path = ref(`${import.meta.env.VITE_CONSUL_URL}/v1/internal/ui/services?dc=dc1`)
 const data = await useConsul(path)
 
- console.log('dddd', data)
+ console.log('data from home ==>', data.value)
 
 
 //const { data } = await useFetch(path.value)

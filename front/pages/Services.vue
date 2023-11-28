@@ -32,6 +32,11 @@
     
   }
 
+
+  const router = useRouter()
+  console.log('route', router.options.routes)
+
+
 </script>
 
 <template>
