@@ -1,4 +1,5 @@
 import useConsul from "~/composables/useConsul"
+import { useTest } from "#imports"
 
 export default class Test {
   #paths: {[key:string]: string}
@@ -20,5 +21,14 @@ export default class Test {
     const data = await useConsul(path)
     console.log('data from test service class', data)
     return data
+  }
+
+
+  async callWithTestComposable() {
+    console.log('in callWithTestComposable function')
+    // const transform = (response: unknown) => {
+    //   console.log('response from transform function in useTest Composable', response)
+    // }
+    await useTest(this.#paths['test'])
   }
 }

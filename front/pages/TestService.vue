@@ -11,6 +11,8 @@ console.log('data from TestService route ==>', data)
 // console.log(x.#paths)
 
 
+x.callWithTestComposable()
+
 
 </script>
 
