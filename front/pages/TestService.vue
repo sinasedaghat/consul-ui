@@ -13,10 +13,21 @@ console.log('data from TestService route ==>', data)
 
 x.callWithTestComposable()
 
+const createService = (name: string) => {
+  x.createService(name)
+}
 
 </script>
 
 <template>
 
-  {{ data }}
+<div>
+    <button 
+      class="bg-secondary hover:opacity-70 text-white font-bold py-1 px-3 my-2 rounded"
+      @click="createService('create Service with service class')"
+    >create sample service</button>
+  </div>
+
+
+  <button></button>
 </template>

@@ -7,7 +7,8 @@ export default class Test {
 
   constructor() {
     this.#paths = {
-      test: 'internal/ui/services'
+      test: 'internal/ui/services',
+      test2: '/agent/service/register'
     }
   }
 
@@ -29,6 +30,14 @@ export default class Test {
     const transform = (response: unknown) => {
       console.log('response from transform function in callWithTestComposable() in test.ts class', response)
     }
-    await useTest(this.#paths['test'], transform)
+    await useTest(this.#paths['test'], 'get', transform, {}, {dc: 'dc1'})
+  }
+
+
+  async createService(name: string) {
+    const transform = (response: unknown) => {
+      console.log('response from transform function in createService() in test.ts class', response)
+    }
+    await useTest(this.#paths['test2'], 'put', transform, {name: name})
   }
 }

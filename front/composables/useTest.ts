@@ -1,11 +1,13 @@
 // It will be available as useFoo() (camelCase of file name without extension)
-export default async function (path: string, transform: (response: unknown) => any, body?: {}, query?: {}) {
+export default async function (path: string, method: "GET" | "HEAD" | "PATCH" | "POST" | "PUT" | "DELETE" | "CONNECT" | "OPTIONS" | "TRACE" | "get" | "head" | "patch" | "post" | "put" | "delete" | "connect" | "options" | "trace", transform: (response: unknown) => any, body?: {}, query?: {}) {
   console.log('hi you are in useTest Composable')
-  const headers = {}
+  const headers = {
+    auth: 'sina'
+  }
   const baseURL = `${import.meta.env.VITE_CONSUL_URL}/v1/`
   
   // const path = ''
-  const method = 'get'
+  // const method = 'get'
   // const query = {}
   // const body = {}
   // const transform = (response: unknown) => {
