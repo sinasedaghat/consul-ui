@@ -26,9 +26,9 @@ export default class Test {
 
   async callWithTestComposable() {
     console.log('in callWithTestComposable function')
-    // const transform = (response: unknown) => {
-    //   console.log('response from transform function in useTest Composable', response)
-    // }
-    await useTest(this.#paths['test'])
+    const transform = (response: unknown) => {
+      console.log('response from transform function in callWithTestComposable() in test.ts class', response)
+    }
+    await useTest(this.#paths['test'], transform)
   }
 }

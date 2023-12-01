@@ -1,5 +1,5 @@
 // It will be available as useFoo() (camelCase of file name without extension)
-export default async function (path: string, query?: {}, body?: {}) {
+export default async function (path: string, transform: (response: unknown) => any, body?: {}, query?: {}) {
   console.log('hi you are in useTest Composable')
   const headers = {}
   const baseURL = `${import.meta.env.VITE_CONSUL_URL}/v1/`
@@ -8,9 +8,9 @@ export default async function (path: string, query?: {}, body?: {}) {
   const method = 'get'
   // const query = {}
   // const body = {}
-  const transform = (response: unknown) => {
-    console.log('response from transform function in useTest Composable', response)
-  }
+  // const transform = (response: unknown) => {
+  //   console.log('response from transform function in useTest Composable', response)
+  // }
   const { data }  = await useFetch(
     path,
     {
