@@ -11,14 +11,14 @@
   <div class="flex">
     <div class="flex flex-row-reverse basis-full h-14 bg-secondary">
       <button
-        class="bg-warning hover:opacity-70 text-error font-bold py-1 px-3 my-2 mx-4 rounded"
+        class="bg-warning hover:opacity-70 text-error font-bold py-1 px-3 my-2 mx-4 rounded cursor-pointer"
         @click="logOut"
       >log out</button>
     </div>
   </div>
   <div class="flex h-screen">
     <!-- side bar -->
-    <div class="basis-2/12 h-full bg-primary ">
+    <div class="basis-2/12 h-full bg-primary flex flex-col gap-4 pt-5">
       <!-- 2xl:hidden -->
       <!-- <div 
         class="w-8 h-8 
@@ -29,6 +29,14 @@
         xl:bg-green-700
         2xl:bg-green-900
       "></div> -->
+    
+      <div class="basis-auto mx-4">
+        <NuxtLink class="text-slate-50 font-bold text-xl cursor-pointer" to="/host">
+          Host
+        </NuxtLink>
+      </div>
+
+
     </div>
     <!-- content -->
     <div class="basis-8/12 p-14">
