@@ -9,6 +9,9 @@
     console.log('hostInfo form onMounted()', hostInfo)
   }
 
+ const { data } = useFetch('http://127.0.0.1:8500/v1/agent/host')  
+ const { data: dataRequest } = useRequest('http://127.0.0.1:8500/v1/agent/host')  
+
   console.log('sssss', hostInfo)
   onMounted(() => {
     info()
@@ -16,5 +19,9 @@
 </script>
 
 <template>
-  {{ hostInfo }}
+  {{ hostInfo }} <!-- not work -->
+  <hr>
+  <!-- {{ data }} -->
+  <hr>
+  {{ dataRequest }}
 </template>
