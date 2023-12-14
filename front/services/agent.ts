@@ -3,27 +3,55 @@ class Agent {
 
   constructor() {
     this.#paths = {
-      hostInformation: '/agent/host'
+      hostInformation: '/agent/host',
+      configuration: '/agent/self',
+      
     }
   }
 
   async hostInformation() {
-    // const transform = (response: unknown) => {
-    //   console.log('response from transform function in createService() in test.ts class', response)
-    //   return response
-    //   // return {
-    //   //   memory: response['Memory'],
-    //   //   cpu: response['CPU'],
-    //   //   host: response['Host'],
-    //   //   disk: response['Disk'],
-    //   // }
-    // }
+    const transform = (response: unknown) => {
+      console.log('response from transform function in hostInformation() in agent.ts class', response)
+      return response
+      // return {
+      //   memory: response['Memory'],
+      //   cpu: response['CPU'],
+      //   host: response['Host'],
+      //   disk: response['Disk'],
+      // }
+    }
     // return await useHTTPRequest(this.#paths.hostInformation, 'GET', transform)
     return await useRequest(this.#paths.hostInformation, {
       method: 'GET', 
-      // transform: (response) => {
-      //   transform(response)
+      transform: (response) => {
+        transform(response)
+      }
+    })
+  }
+
+  async configuration() {
+    const transform = async (response: unknown) => {
+      console.log('response from transform function in configuration() in agent.ts class', response)
+      return await response
+      // return {
+      //   memory: response['Memory'],
+      //   cpu: response['CPU'],
+      //   host: response['Host'],
+      //   disk: response['Disk'],
       // }
+    }
+    // return await useHTTPRequest(this.#paths.hostInformation, 'GET', transform)
+    return await useRequest(this.#paths.configuration, {
+      method: 'GET', 
+      transform: (response) => {
+        transform(response)
+      }
+    })
+  }
+
+  async configurationT2() {
+    return await useRequest(this.#paths.configuration, {
+      method: 'GET',
     })
   }
 
