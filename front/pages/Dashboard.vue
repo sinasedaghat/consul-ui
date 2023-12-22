@@ -2,7 +2,13 @@
   definePageMeta({
     layout: false,
     needAuth: true
-  });
+  })
+
+  console.log('in script befor onMounted')
+  onMounted(() => {
+    console.log('in onMounted')
+  })
+  console.log('in script after onMounted')
 
 </script>
 

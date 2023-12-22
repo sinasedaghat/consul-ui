@@ -13,8 +13,14 @@
     // const { data } = await agent.configuration()
     // conf.value = data
 
-    // conf.value = await agent.configuration()
-    conf.value = await agent.configurationT2()
+    conf.value = (await agent.configuration()).data
+    // conf.value = await agent.configurationT2()
+
+    // useRequest('http://127.0.0.1:8500/v1/agent/self', {
+    //   transform: (response) => {
+    //     return response
+    //   }
+    // })
   }
 
   // onMounted(() => {
@@ -23,12 +29,24 @@
   //   // const hostConfiguration = ref({data})
   //   configuration()
   // })
-  configuration() 
+
+  configuration()
+
+  const transformTest = (response: unknown) => {
+    console.log('response from useRequest extrnal function', response)
+    return 'testdddddd'
+  }
+
+  const { data } = await useRequest('agent/self', {
+    transform:(response) => transformTest(response)
+  })
 
 
 </script>
 
 <template>
+  {{ data }}
+
   <div class="flex flex-row">
     <div class="basis-1/2 border-4 border-secondary text-primary p-2">
       <span @click="hostInformation()" class="block  text-secondary mb-4">click get host information</span>

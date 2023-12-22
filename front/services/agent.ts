@@ -30,22 +30,15 @@ class Agent {
   }
 
   async configuration() {
-    const transform = async (response: unknown) => {
+    const transform = (response: unknown) => {
       console.log('response from transform function in configuration() in agent.ts class', response)
-      return await response
-      // return {
-      //   memory: response['Memory'],
-      //   cpu: response['CPU'],
-      //   host: response['Host'],
-      //   disk: response['Disk'],
-      // }
+      // return 'tfrtft'
+      return response.hasOwnProperty('Config') ? response['Config'] : null
     }
     // return await useHTTPRequest(this.#paths.hostInformation, 'GET', transform)
     return await useRequest(this.#paths.configuration, {
       method: 'GET', 
-      transform: (response) => {
-        transform(response)
-      }
+      transform: (response) => transform(response)
     })
   }
 
